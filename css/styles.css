@@ -131,3 +131,13 @@ main {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 0.9375rem;
+}
