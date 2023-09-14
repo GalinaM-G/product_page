@@ -5,14 +5,22 @@
 @import '_mixins';
 @import 'global';
 
-footer {
-    display: flex;
-    justify-content: center;
-    padding-bottom: toRem(15);
+
+h1,
+h2 {
+    position: fixed;
+    right: 100vw;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
 }
 
+.product {
+    display: flex;
+    gap: toRem(50);
+}
 
-
-
-
-
+.footer {
+    padding: 0 toRem(15) toRem(15);
+}

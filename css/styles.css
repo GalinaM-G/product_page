@@ -102,7 +102,6 @@ body {
   font-family: "Kumbh Sans";
   font-weight: 400;
   line-height: 1.5;
-  background-color: var(--clr-bgr);
   overflow-x: hidden;
 }
 
@@ -113,9 +112,9 @@ main {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 71.25rem;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 0.9375rem;
 }
 
 .sr-only {
@@ -132,12 +131,23 @@ main {
   overflow: hidden;
 }
 
-footer {
+h1,
+h2 {
+  position: fixed;
+  right: 100vw;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.product {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-bottom: 0.9375rem;
+  gap: 3.125rem;
+}
+
+.footer {
+  padding: 0 0.9375rem 0.9375rem;
 }

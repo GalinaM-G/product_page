@@ -19,19 +19,20 @@ body {
     font-family: 'Kumbh Sans';
     font-weight: 400;
     line-height: 1.5;
-    background-color: var(--clr-bgr);
+    //background-color: var(--clr-bgr);
     overflow-x: hidden;
 }
 
 
 main {
     flex-grow: 1;
+
 }
 
 .container {
-    max-width: 1140px;
+    max-width: toRem(1140);
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 toRem(15);
 }
 
 .sr-only {
@@ -55,10 +56,4 @@ main {
 //     height: 0;
 //     opacity: 0;
 //     overflow: hidden;
-// }
-
-
-// .section {
-//     padding-top: 120px;
-//     text-align: center;
 // }
