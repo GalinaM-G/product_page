@@ -25,12 +25,14 @@ body {
 
 
 main {
+    max-width: toRem(1015);
+    margin: 0 auto;
+    padding: 0 toRem(15);
     flex-grow: 1;
-
 }
 
 .container {
-    max-width: toRem(1140);
+    max-width: toRem(1110);
     margin: 0 auto;
     padding: 0 toRem(15);
 }

@@ -6,8 +6,7 @@
 @import 'global';
 
 
-h1,
-h2 {
+.sr-only {
     position: fixed;
     right: 100vw;
     width: 0;
@@ -19,6 +18,21 @@ h2 {
 .product {
     display: flex;
     gap: toRem(50);
+
+    &__title {
+
+    }
+}
+
+section {
+    flex: 1;
+}
+
+.cart {
+    svg {
+        width: toRem(22);
+        height: toRem(20);
+    }
 }
 
 .footer {
