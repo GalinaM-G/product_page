@@ -12,12 +12,12 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
+        <div class="container header__container">
             <nav class="header__left">
                 <!-- <button class="burger" type="button">
-                    <span class="sr-only">Открыть меню</span>
-                    <span></span>
-                </button> -->
+                        <span class="sr-only">Открыть меню</span>
+                        <span></span>
+                    </button> -->
                 <a class="logo" href="#">
                     <img class="logo__img" src="images/logo.svg" alt="logo">
                 </a>
@@ -50,15 +50,18 @@
                 </ul>
             </nav>
             <div class="header__right">
-                <button class="cart" type=",,,,,">
+                <button class="cart" type="button">
                     <span class="sr-only">Cart</span>
                     <svg>
                         <use xlink:href="images/icons.svg#cart"></use>
                     </svg>
-                    <span class="cart__counter">0</span>
+                    <!-- <span class="cart__counter">0</span> -->
                 </button>
                 <a class="user" href="#"><img src="/images/image-avatar.png" alt=""></a>
             </div>
+        </div>
+        <div class="cart-modal">
+            <h3 class="cart-modal__title">Cart</h3>
 
         </div>
     </header>
@@ -96,7 +99,8 @@
                 </div>
                 <div class="counter">
                     <button type="button" class="counter__substract">-</button>
-                    <span class="counter__number">0</span>
+                    <input type="text" class="counter__number" value="0">
+                    
                     <button type="button" class="counter__add">+</button>
                 </div>
                 <button class="product__btn">Add to cart</button>

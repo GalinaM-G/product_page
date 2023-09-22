@@ -1,11 +1,18 @@
-:root {
-    --clr-bgr: #03776F;
 
-    --clr-bgr-img: radial-gradient(circle closest-corner at 70% 55%, #03776F 0%, #012d2a 100%);
-    --clr-light: #04c5b5;
-    --clr-main-font: #ccfaf6;
-    --clr-white: #ffffff;
-    --clr-title:
+:root {
+    --clr-bgr: #ffffff;
+
+    --clr-primary: #FF7E1B;
+    --clr-secondary: #ffede0;
+
+    --clr-selection:#1D2026;
+    --clr-font: #69707D;
+
+    --clr-grey-price:#B6BCC8;
+    --clr-grey-input: #F6F8FD;
+    --clr-grey-footer: #E4E9F2;
+
+    --clr-lightbox-bgr: #00000075;
 }
 
 html,
@@ -19,10 +26,9 @@ body {
     font-family: 'Kumbh Sans';
     font-weight: 400;
     line-height: 1.5;
-    //background-color: var(--clr-bgr);
+    background-color: var(--clr-bgr);
     overflow-x: hidden;
 }
-
 
 main {
     max-width: toRem(1015);
@@ -37,25 +43,16 @@ main {
     padding: 0 toRem(15);
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+section {
+    flex: 1;
+    padding: toRem(90) 0 toRem(132) 0;
 }
 
-// Hajime
-// .sr-only {
-//     position: fixed;
-//     right: 100vw;
-//     width: 0;
-//     height: 0;
-//     opacity: 0;
-//     overflow: hidden;
-// }
+.sr-only {
+    position: fixed;
+    right: 100vw;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}

@@ -78,12 +78,15 @@ a {
   font-display: swap;
 }
 :root {
-  --clr-bgr: #03776F;
-  --clr-bgr-img: radial-gradient(circle closest-corner at 70% 55%, #03776F 0%, #012d2a 100%);
-  --clr-light: #04c5b5;
-  --clr-main-font: #ccfaf6;
-  --clr-white: #ffffff;
-  --clr-title: ;
+  --clr-bgr: #ffffff;
+  --clr-primary: #FF7E1B;
+  --clr-secondary: #ffede0;
+  --clr-selection:#1D2026;
+  --clr-font: #69707D;
+  --clr-grey-price:#B6BCC8;
+  --clr-grey-input: #F6F8FD;
+  --clr-grey-footer: #E4E9F2;
+  --clr-lightbox-bgr: #00000075;
 }
 
 html,
@@ -102,6 +105,7 @@ body {
   font-family: "Kumbh Sans";
   font-weight: 400;
   line-height: 1.5;
+  background-color: var(--clr-bgr);
   overflow-x: hidden;
 }
 
@@ -120,18 +124,11 @@ main {
   padding: 0 0.9375rem;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5.625rem 0 8.25rem 0;
 }
 
 .sr-only {
@@ -143,21 +140,63 @@ main {
   overflow: hidden;
 }
 
+.header__container, .header__left, .header__right,
+.header .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header__container {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--clr-grey-footer);
+}
+.header__left {
+  gap: 3.5rem;
+}
+.header__right {
+  gap: 2.75rem;
+}
+
+.logo__img {
+  width: 8.5625rem;
+  height: 1.375rem;
+}
+
+.menu {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2.0625rem;
+  font-size: 0.9375rem;
+  color: var(--clr-font);
+}
+
 .product {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 3.125rem;
 }
-section {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
 
 .cart svg {
+  padding-top: 4px;
   width: 1.375rem;
-  height: 1.25rem;
+  height: 1.5rem;
+}
+
+.user img {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.cart-modal {
+  display: none;
 }
 
 .footer {

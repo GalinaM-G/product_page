@@ -6,33 +6,72 @@
 @import 'global';
 
 
-.sr-only {
-    position: fixed;
-    right: 100vw;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
+.header {
+
+    &__container,
+    &__left,
+    &__right,
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__container {
+        padding: toRem(40) 0;
+        border-bottom: 1px solid var(--clr-grey-footer);
+    }
+
+
+    &__left {
+        gap: toRem(56);
+    }
+
+    &__right {
+        gap: toRem(44);
+    }
+}
+
+.logo {
+    &__img {
+        width: toRem(137);
+        height: toRem(22);
+    }
+}
+
+.menu {
+    align-items: center;
+    gap: toRem(33);
+    font-size: toRem(15);
+    color: var(--clr-font);
 }
 
 .product {
     display: flex;
     gap: toRem(50);
 
-    &__title {
+    // &__title {
 
-    }
-}
-
-section {
-    flex: 1;
+    // }
 }
 
 .cart {
     svg {
+        padding-top: 4px;
         width: toRem(22);
-        height: toRem(20);
+        height: toRem(24);
     }
+}
+
+.user {
+    img {
+        width: toRem(50);
+        height: toRem(50);
+    }
+}
+
+.cart-modal {
+    display: none;
 }
 
 .footer {
