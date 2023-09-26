@@ -184,10 +184,26 @@ section {
   gap: 3.125rem;
 }
 
+.cart {
+  position: relative;
+}
 .cart svg {
   padding-top: 4px;
   width: 1.375rem;
   height: 1.5rem;
+}
+.cart__counter {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  width: 1.1875rem;
+  height: 0.8125rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-bgr);
+  font-size: 0.625rem;
+  font-weight: bold;
+  border-radius: 6px;
 }
 
 .user img {

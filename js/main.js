@@ -15,80 +15,43 @@ thumbnailImages.forEach((thumbnail, index) => {
 
 //Counter for a product item and cart
 
-// let substructItem = document.querySelector('.counter__substract');
-// let addItem = document.querySelector('.counter__add');
-// let numberItem = document.querySelector('.counter__number');
-// let cartCounter = document.querySelector('.cart__counter');
-// let cartButton = document.querySelector('.product__btn');
+let substructItem = document.querySelector('.counter__substract');
+let addItem = document.querySelector('.counter__add');
+let numberItem = document.querySelector('.counter__number').value;
 
-// let counter = 0;
-// let price = 125;
+let cartCounter = document.querySelector('.cart__counter');
 
-// //function to update the quantity and total price
-// function renderCart() {
-//     numberItem.textContent = counter;
+let addToCartButton = document.querySelector('.product__btn');
+
+numberItem = 0;
+
+function updateInputField() {
+    document.querySelector('.counter__number').value = numberItem;
+}
+
+// Initial update
+updateInputField();
+
+addItem.addEventListener('click', () => {
+    numberItem++;
+    updateInputField();
+});
+
+substructItem.addEventListener('click', () => {
+    if (numberItem > 0) {
+        numberItem--;
+        updateInputField();
+    }
+});
 
 
-   
+addToCartButton.addEventListener('click', () => {
+    cartCounter.style.display = "block";
+    cartCounter.textContent = numberItem;
 
-
-//     //Calculate the total price
-//     // let totalPrice = price * counter;
-//     // console.log(totalPrice); add to modal cart later
-// }
-//  cartButton.addEventListener('click', () => {
-       
-//         let counterModal = counter;
-
-//         cartCounter.textContent = counterModal;
+    document.querySelector('.counter__number').value = 0;
     
-//     })
-
-// // Event listener for the decrement button
-// substructItem.addEventListener('click', () => {
-//     if (counter > 0) {
-//         counter--;
-//         renderCart();
-//     }
-// });
-
-// // Event listener for the increment button
-// addItem.addEventListener('click', () => {
-//     counter++;
-//     renderCart();
-// });
-
-// // Initial update
-// renderCart();
-
-
-
-    // Get references to the counter elements
-    const subtractButton = document.querySelector('.counter__subtract');
-    const addButton = document.querySelector('.counter__add');
-    const numberInput = document.querySelector('.counter__number');
-
-    // Add a click event listener to the subtract button
-    subtractButton.addEventListener('click', () => {
-        // Parse the current value of the input field as an integer
-        let currentValue = +numberInput.value ;
-
-        // Ensure the value is greater than 0 before decrementing
-        if (currentValue > 0) {
-        currentValue--;
-    numberInput.value = currentValue;
-        }
-    });
-
-    // Add a click event listener to the add button
-    addButton.addEventListener('click', () => {
-        // Parse the current value of the input field as an integer
-        let currentValue = parseInt(numberInput.value);
-
-    // Increment the value
-    currentValue++;
-    numberInput.value = currentValue;
-    });
+})
 
 
 

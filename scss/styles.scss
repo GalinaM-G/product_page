@@ -56,11 +56,28 @@
 }
 
 .cart {
+    position: relative;
+
     svg {
         padding-top: 4px;
         width: toRem(22);
         height: toRem(24);
     }
+
+    &__counter {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: toRem(-8);
+        width: toRem(19);
+        height: toRem(13);
+        background-color: var(--clr-primary);
+        color: var(--clr-bgr);
+        font-size: toRem(10);
+        font-weight: bold;
+        border-radius: 6px;
+    }
+
 }
 
 .user {
