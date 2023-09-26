@@ -20,17 +20,21 @@ let addItem = document.querySelector('.counter__add');
 let numberItem = document.querySelector('.counter__number').value;
 
 let cartCounter = document.querySelector('.cart__counter');
-
 let addToCartButton = document.querySelector('.product__btn');
 
-numberItem = 0;
+let totalItemsInCart = 0; // Initialize the total items in the cart
 
 function updateInputField() {
     document.querySelector('.counter__number').value = numberItem;
 }
 
+function updateCartCounter() {
+    cartCounter.textContent = totalItemsInCart;
+}
+
 // Initial update
 updateInputField();
+updateCartCounter(); // Update the cart counter initially
 
 addItem.addEventListener('click', () => {
     numberItem++;
@@ -42,16 +46,41 @@ substructItem.addEventListener('click', () => {
         numberItem--;
         updateInputField();
     }
+
+});
+
+// Add event listeners for the Enter key on increment and decrement buttons
+addItem.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        numberItem++;
+        updateInputField();
+
+    }
+});
+
+substructItem.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && numberItem > 0) {
+        numberItem--;
+        updateInputField();
+    }
+
+});
+
+addToCartButton.addEventListener('click', () => {
+    if (numberItem > 0) {
+        cartCounter.style.display = "block";
+        totalItemsInCart += numberItem; // Add the selected items to the total cart items
+        //console.log(totalItemsInCart);
+        updateCartCounter(); // Update the cart counter
+    }
+    document.querySelector('.counter__number').value = 0;
+    numberItem = 0;
 });
 
 
-addToCartButton.addEventListener('click', () => {
-    cartCounter.style.display = "block";
-    cartCounter.textContent = numberItem;
 
-    document.querySelector('.counter__number').value = 0;
-    
-})
+
+
 
 
 
