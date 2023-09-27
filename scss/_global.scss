@@ -31,14 +31,14 @@ body {
 }
 
 main {
-    max-width: toRem(1015);
+    max-width: toRem(1045);
     margin: 0 auto;
     padding: 0 toRem(15);
     flex-grow: 1;
 }
 
 .container {
-    max-width: toRem(1110);
+    max-width: toRem(1140);
     margin: 0 auto;
     padding: 0 toRem(15);
 }
@@ -46,6 +46,8 @@ main {
 section {
     flex: 1;
     padding: toRem(90) 0 toRem(132) 0;
+    max-width: toRem(445);
+    width: 100%;
 }
 
 .sr-only {
