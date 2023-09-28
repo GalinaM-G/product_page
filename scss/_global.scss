@@ -3,7 +3,8 @@
     --clr-bgr: #ffffff;
 
     --clr-primary: #FF7E1B;
-    --clr-secondary: #ffede0;
+    --clr-secondary: #ffeee2;
+    --clr-hover: #FFAB6A;
 
     --clr-selection:#1D2026;
     --clr-font: #69707D;
@@ -48,6 +49,19 @@ section {
     padding: toRem(90) 0 toRem(132) 0;
     max-width: toRem(445);
     width: 100%;
+}
+
+.btn {
+    background-color: var(--clr-primary);
+    color: var(--clr-bgr);
+    font-weight: 700;
+    border-radius: toRem(10);
+    transition: background-color 0.4s;
+    
+    &:hover {
+        background-color: var(--clr-hover);
+    }
+
 }
 
 .sr-only {

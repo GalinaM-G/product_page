@@ -22,7 +22,7 @@ let addItem = document.querySelector('.counter__add');
 let numberItem = document.querySelector('.counter__number').value;
 
 let cartCounter = document.querySelector('.cart__counter');
-let addToCartButton = document.querySelector('.product__btn');
+let addToCartButton = document.querySelector('.counter__btn');
 
 let totalItemsInCart = 0; // Initialize the total items in the cart
 

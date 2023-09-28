@@ -88,21 +88,24 @@
 
             </section>
             <section aria-labelledby="product-info">
-                <a href="#">sneaker company</a>
+                <a class="product__brand" href="#">sneaker company</a>
                 <h2 id="product-info" class="product__title">fall limited edition sneakers</h2>
                 <p class="product__text">These low-profile sneakers are your perfect casual wear companion. Featuring a
                     durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
                 <div class="price">
-                    <span class="price__actual"><span class="currency">d</span>125</span>
+                    <span class="price__actual"><span class="currency">&#36;</span>125.00</span>
                     <span class="price__discount">50%</span>
-                    <span class="price__before"><span class="currency">d</span>250</span>
+                    <span class="price__before"><span class="currency">&#36;</span>250.00</span>
                 </div>
                 <div class="counter">
-                    <button type="button" class="counter__substract">-</button>
-                    <input type="number" class="counter__number" readonly value="0">
-                    <button type="button" class="counter__add">+</button>
+                    <div class="counter__inputs">
+                        <button type="button" class="counter__substract">-</button>
+                        <input type="number" class="counter__number" readonly value="0">
+                        <button type="button" class="counter__add">+</button>
+                    </div>
+                    <button class="counter__btn btn">Add to cart</button>
                 </div>
-                <button class="product__btn">Add to cart</button>
+
             </section>
         </div>
     </main>

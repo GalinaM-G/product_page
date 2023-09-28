@@ -47,6 +47,7 @@
 
 .product {
     display: flex;
+    align-items: center;
     gap: toRem(125);
 
     &__img {
@@ -95,6 +96,71 @@
 
     &__thumb img {
         border-radius: toRem(10);
+    }
+
+    &__brand {
+        display: block;
+        color: var(--clr-primary);
+        font-size: toRem(13);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: toRem(2);
+        margin-bottom: toRem(24);
+    }
+
+    &__title {
+        font-size: toRem(44);
+        line-height: 1;
+        color: var(--clr-selection);
+        text-transform: capitalize;
+        margin-bottom: toRem(32);
+    }
+
+    &__text {
+        color: var(--clr-font);
+        line-height: 1.6;
+        margin-bottom: toRem(24);
+    }
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-weight: 700;
+    margin-bottom: toRem(32);
+
+    &__actual {
+        font-size: toRem(28);
+        color: var(--clr-selection);
+    }
+
+    &__discount {
+        position: absolute;
+        left: toRem(118);
+        top: toRem(7);
+        background-color: var(--clr-secondary);
+        color: var(--clr-primary);
+        padding: 0 toRem(8);
+        border-radius: toRem(6);
+    }
+
+    &__before {
+        color: var(--clr-grey-price);
+        text-decoration: line-through;
+    }
+
+
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: toRem(16);
+
+    &__btn {
+        
+        padding: toRem(20) toRem(120);
     }
 }
 
