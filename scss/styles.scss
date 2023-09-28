@@ -157,10 +157,32 @@
     display: flex;
     align-items: center;
     gap: toRem(16);
+    min-height: toRem(56);
 
-    &__btn {
-        
-        padding: toRem(20) toRem(120);
+
+    &__number {
+        border: none;
+        background-color: var(--clr-grey-input);
+        width: 52px;
+        text-align: center;
+        min-height: toRem(56);
+    }
+
+    &__substract,
+    &__add {
+        background-color: var(--clr-grey-input);
+        min-height: toRem(56);
+        width: 53px;
+    }
+
+    &__substract {
+        margin-right: -5px;
+    }
+
+    &__add {
+        margin-left: -5px;
+        border-top-right-radius: toRem(10);
+        border-bottom-right-radius: toRem(10);
     }
 }
 

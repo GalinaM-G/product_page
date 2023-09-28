@@ -306,9 +306,27 @@ section {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
+  min-height: 3.5rem;
 }
-.counter__btn {
-  padding: 1.25rem 7.5rem;
+.counter__number {
+  border: none;
+  background-color: var(--clr-grey-input);
+  width: 52px;
+  text-align: center;
+  min-height: 3.5rem;
+}
+.counter__substract, .counter__add {
+  background-color: var(--clr-grey-input);
+  min-height: 3.5rem;
+  width: 53px;
+}
+.counter__substract {
+  margin-right: -5px;
+}
+.counter__add {
+  margin-left: -5px;
+  border-top-right-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
 }
 
 .cart {
