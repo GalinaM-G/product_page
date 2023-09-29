@@ -47,8 +47,12 @@
 
 .product {
     display: flex;
-    align-items: center;
     gap: toRem(125);
+    padding: toRem(90) 0 toRem(132) 0;
+
+    &__info {
+        padding-top: toRem(60);
+    }
 
     &__img {
         border-radius: toRem(15);
@@ -159,30 +163,30 @@
     gap: toRem(16);
     min-height: toRem(56);
 
+    &__inputs {
+        display: flex;
+        height: toRem(56);
+        background-color: var(--clr-grey-input);
+        border-radius: toRem(10);
+        width: toRem(157);
+        font-weight: 700;
+    }
 
     &__number {
         border: none;
         background-color: var(--clr-grey-input);
-        width: 52px;
+        height: 100%;
+        width: 100%;
         text-align: center;
-        min-height: toRem(56);
+        flex: 1;
+        padding-left: 20px;
     }
 
     &__substract,
     &__add {
-        background-color: var(--clr-grey-input);
-        min-height: toRem(56);
-        width: 53px;
-    }
-
-    &__substract {
-        margin-right: -5px;
-    }
-
-    &__add {
-        margin-left: -5px;
-        border-top-right-radius: toRem(10);
-        border-bottom-right-radius: toRem(10);
+        font-size: toRem(22);
+        color: var(--clr-primary);
+        flex: 1;
     }
 }
 
