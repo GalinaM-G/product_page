@@ -165,6 +165,7 @@
 
     &__inputs {
         display: flex;
+        align-items: baseline;
         height: toRem(56);
         background-color: var(--clr-grey-input);
         border-radius: toRem(10);
@@ -188,6 +189,21 @@
         color: var(--clr-primary);
         flex: 1;
     }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: toRem(15);
+        padding-left: toRem(75)
+    }
+
+    &__btn svg {
+        width: toRem(22);
+        height: toRem(20);
+        fill: var(--clr-bgr);
+
+    }
 }
 
 .cart {
@@ -197,6 +213,7 @@
         padding-top: 4px;
         width: toRem(22);
         height: toRem(24);
+        fill: var(--clr-font);
     }
 
     &__counter {
