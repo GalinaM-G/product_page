@@ -83,11 +83,21 @@ addToCartButton.addEventListener('click', () => {
 //Cart rendering
 
 let cartModal = document.querySelector('.cart-modal');
-let cartIcon = document.getElementById('cart');
+let cartIcon = document.querySelector('.cart');
+let cartContent = document.querySelector('.cart-model__content');
 
 cartIcon.addEventListener('click', () => {
     cartModal.classList.toggle('show');
+    if (totalItemsInCart > 0) {
+        cartContent.textContent = 'blue';
+    }
+    else {
+        cartContent.textContent = 'red';
+    }
 });
+
+
+
 
 
 
