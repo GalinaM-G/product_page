@@ -83,7 +83,7 @@ addToCartButton.addEventListener('click', () => {
 
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
-let cartContent = document.querySelector('.cart-model__content');
+let cartContent = document.querySelector('.cart-modal__content');
 
 // Function to close the cart modal
 function closeCart() {

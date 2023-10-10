@@ -51,17 +51,20 @@
     left: 69%;
     top: toRem(105);
     width: toRem(360);
-    min-height: toRem(256);
     background-color: var(--clr-bgr);
     box-shadow: 0px 20px 50px -20px #1d202680;
 
     &__title {
+        font-size: toRem(16);
         padding: toRem(24);
         border-bottom: 1px solid var(--clr-grey-footer);
     }
 
     &__content {
-        padding: toRem(24);
+        min-height: toRem(188);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__empty {
@@ -69,10 +72,14 @@
         font-weight: 700;
         margin: auto;
     }
+
+
 }
 
 .cart-modal.show {
     display: block;
+
+
 }
 
 .product {
