@@ -63,6 +63,12 @@
     &__content {
         padding: toRem(24);
     }
+
+    &__empty {
+        color: var(--clr-font);
+        font-weight: 700;
+        margin: auto;
+    }
 }
 
 .cart-modal.show {

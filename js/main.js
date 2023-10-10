@@ -10,6 +10,7 @@ thumbnailImages.forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {
         productImage.src = `/images/image-product-${index + 1}.jpg`;
         productImage.alt = thumbnail.alt;
+        console.log(thumbnail);
     });
 });
 
@@ -27,6 +28,7 @@ let addToCartButton = document.querySelector('.counter__btn');
 let totalItemsInCart = 0; // Initialize the total items in the cart
 
 function updateInputField() {
+
     document.querySelector('.counter__number').value = numberItem;
 }
 
@@ -48,7 +50,6 @@ substructItem.addEventListener('click', () => {
         numberItem--;
         updateInputField();
     }
-
 });
 
 // Add event listeners for the Enter key on increment and decrement buttons
@@ -65,7 +66,6 @@ substructItem.addEventListener('keydown', (e) => {
         numberItem--;
         updateInputField();
     }
-
 });
 
 addToCartButton.addEventListener('click', () => {
@@ -79,22 +79,43 @@ addToCartButton.addEventListener('click', () => {
     numberItem = 0;
 });
 
-
 //Cart rendering
 
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
 let cartContent = document.querySelector('.cart-model__content');
 
+// Function to close the cart modal
+function closeCart() {
+    cartModal.classList.remove('show');
+}
+
+// Event listener to close cart when clicking anywhere on the document
+document.addEventListener('click', (event) => {
+    // Check if the click target is not within the cart modal
+    if (!cartModal.contains(event.target)) {
+        closeCart();
+    }
+});
+
 cartIcon.addEventListener('click', () => {
+    event.stopPropagation();
+
     cartModal.classList.toggle('show');
     if (totalItemsInCart > 0) {
         cartContent.textContent = 'blue';
     }
     else {
-        cartContent.textContent = 'red';
+        let emptyCartContent = document.createElement('p');
+        emptyCartContent.classList.add('cart-modal__empty');
+        emptyCartContent.textContent = 'Your cart is empty.';
+        cartContent.innerHTML = '';
+        cartContent.append(emptyCartContent);
     }
 });
+
+
+
 
 
 

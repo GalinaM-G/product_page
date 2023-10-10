@@ -211,6 +211,11 @@ section {
 .cart-modal__content {
   padding: 1.5rem;
 }
+.cart-modal__empty {
+  color: var(--clr-font);
+  font-weight: 700;
+  margin: auto;
+}
 
 .cart-modal.show {
   display: block;
