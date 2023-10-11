@@ -62,10 +62,19 @@
 
     &__content {
         min-height: toRem(188);
+        padding: toRem(24);
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        gap: toRem(16);
+        color: var(--clr-font);
     }
+
+    &__content svg {
+        width: toRem(14);
+        height: toRem(16);
+        fill: #c3cad9;
+    }
+
 
     &__empty {
         color: var(--clr-font);
@@ -73,13 +82,24 @@
         margin: auto;
     }
 
+    &__img {
+        width: toRem(50);
+        height: toRem(50);
+    }
 
+    &__total {
+        color: var(--clr-selection);
+        font-weight: 700;
+    }
+
+    &__info {
+        display: flex;
+    }
 }
 
 .cart-modal.show {
-    display: block;
-
-
+    display: flex;
+    flex-direction: column;
 }
 
 .product {

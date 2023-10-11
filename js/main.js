@@ -15,7 +15,6 @@ thumbnailImages.forEach((thumbnail, index) => {
 });
 
 
-
 //Counter for a product item and cart
 
 let substructItem = document.querySelector('.counter__substract');
@@ -57,7 +56,6 @@ addItem.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         numberItem++;
         updateInputField();
-
     }
 });
 
@@ -102,8 +100,29 @@ cartIcon.addEventListener('click', () => {
     event.stopPropagation();
 
     cartModal.classList.toggle('show');
+
     if (totalItemsInCart > 0) {
-        cartContent.textContent = 'blue';
+        
+        cartContent.innerHTML = `<div class="cart-modal__info">
+                    <img class="cart-modal__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
+                    <div>
+                        <div>Fall Limited Edition</div>
+                        <div>
+                            <span class="cart-modal__price">
+                                <span class="currency">&#36;</span>125.00
+                            </span>
+                            x 3
+                            <span class="cart-modal__total">
+                                <span class="currency">&#36;</span>total
+                            </span>
+                        </div>
+                    </div>
+                    <span class="sr-only">Delete items</span>
+                    <svg>
+                        <use xlink:href="images/icons.svg#delete"></use>
+                    </svg>
+                </div>
+                <a class="btn" href="#">check out</a>`;
     }
     else {
         let emptyCartContent = document.createElement('p');
