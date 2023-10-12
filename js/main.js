@@ -1,6 +1,5 @@
 //Switching the large product image by clicking on the small thumbnail images
 
-
 let thumbnailImages = document.querySelectorAll('.product__thumb');
 let productImage = document.querySelector('.product__img');
 
@@ -26,13 +25,19 @@ let addToCartButton = document.querySelector('.counter__btn');
 
 let totalItemsInCart = 0; // Initialize the total items in the cart
 
-function updateInputField() {
+let actualPrice = 125.00.toFixed(2);
+let totalPrice = 0.00.toFixed(2);
 
+function updateInputField() {
     document.querySelector('.counter__number').value = numberItem;
 }
 
 function updateCartCounter() {
     cartCounter.textContent = totalItemsInCart;
+}
+
+function calcTotal() {
+    totalPrice = actualPrice * totalItemsInCart;
 }
 
 // Initial update
@@ -51,7 +56,7 @@ substructItem.addEventListener('click', () => {
     }
 });
 
-// Add event listeners for the Enter key on increment and decrement buttons
+//Add event listeners for the Enter key on increment and decrement buttons
 addItem.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         numberItem++;
@@ -72,7 +77,9 @@ addToCartButton.addEventListener('click', () => {
         totalItemsInCart += numberItem; // Add the selected items to the total cart items
         //console.log(totalItemsInCart);
         updateCartCounter(); // Update the cart counter
+        calcTotal();
     }
+
     document.querySelector('.counter__number').value = 0;
     numberItem = 0;
 });
@@ -82,6 +89,8 @@ addToCartButton.addEventListener('click', () => {
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
 let cartContent = document.querySelector('.cart-modal__content');
+let cartItem;
+
 
 // Function to close the cart modal
 function closeCart() {
@@ -96,42 +105,52 @@ document.addEventListener('click', (event) => {
     }
 });
 
-cartIcon.addEventListener('click', () => {
+cartIcon.addEventListener('click', (event) => {
     event.stopPropagation();
 
     cartModal.classList.toggle('show');
 
     if (totalItemsInCart > 0) {
-        
         cartContent.innerHTML = `<div class="cart-modal__info">
                     <img class="cart-modal__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
                     <div>
-                        <div>Fall Limited Edition</div>
+                        <div>Fall Limited Edition Sneakers</div>
                         <div>
                             <span class="cart-modal__price">
-                                <span class="currency">&#36;</span>125.00
+                                <span class="currency">&#36;</span>${actualPrice}
                             </span>
-                            x 3
+                            x ${totalItemsInCart}
                             <span class="cart-modal__total">
-                                <span class="currency">&#36;</span>total
+                                <span class="currency">&#36;</span>${totalPrice}
                             </span>
                         </div>
                     </div>
                     <span class="sr-only">Delete items</span>
-                    <svg>
+                    <button class="delete"><svg >
                         <use xlink:href="images/icons.svg#delete"></use>
                     </svg>
+                    </button>
                 </div>
-                <a class="btn" href="#">check out</a>`;
+                <a class="btn" href="#">Check out</a>`;
+       cartItem = document.querySelector('.cart-modal__info');
+       console.log(cartItem);
     }
-    else {
-        let emptyCartContent = document.createElement('p');
-        emptyCartContent.classList.add('cart-modal__empty');
-        emptyCartContent.textContent = 'Your cart is empty.';
-        cartContent.innerHTML = '';
-        cartContent.append(emptyCartContent);
+    // else {
+    //     let emptyCartContent = document.createElement('p');
+    //     emptyCartContent.classList.add('cart-modal__empty');
+    //     emptyCartContent.textContent = 'Your cart is empty.';
+    //     cartContent.innerHTML = '';
+    //     cartContent.append(emptyCartContent);
+    // }
+});
+
+cartContent.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete')) {
+        cartItem.remove();
     }
 });
+
+
 
 
 

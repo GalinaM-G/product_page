@@ -58,6 +58,7 @@ section {
     border-radius: toRem(10);
     transition: background-color 0.4s;
     padding: toRem(16) toRem(75);
+    text-align: center;
     white-space: nowrap;
     
     &:hover {

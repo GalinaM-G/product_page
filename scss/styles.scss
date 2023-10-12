@@ -94,6 +94,9 @@
 
     &__info {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: toRem(15);
     }
 }
 
@@ -101,6 +104,7 @@
     display: flex;
     flex-direction: column;
 }
+
 
 .product {
     display: flex;
@@ -294,8 +298,6 @@
         height: toRem(50);
     }
 }
-
-
 
 .footer {
     padding: 0 toRem(15) toRem(15);
