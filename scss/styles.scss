@@ -98,6 +98,12 @@
         justify-content: space-between;
         gap: toRem(15);
     }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(30);
+    }
 }
 
 .cart-modal.show {

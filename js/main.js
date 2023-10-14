@@ -26,7 +26,7 @@ let addToCartButton = document.querySelector('.counter__btn');
 let totalItemsInCart = 0; // Initialize the total items in the cart
 
 let actualPrice = 125.00.toFixed(2);
-let totalPrice = 0.00.toFixed(2);
+let totalPrice = 0.00;
 
 function updateInputField() {
     document.querySelector('.counter__number').value = numberItem;
@@ -37,7 +37,7 @@ function updateCartCounter() {
 }
 
 function calcTotal() {
-    totalPrice = actualPrice * totalItemsInCart;
+    totalPrice = (actualPrice * totalItemsInCart).toFixed(2);
 }
 
 // Initial update
@@ -85,19 +85,15 @@ addToCartButton.addEventListener('click', () => {
 });
 
 //Cart rendering
-
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
 let cartContent = document.querySelector('.cart-modal__content');
-let cartItem;
-
 
 // Function to close the cart modal
 function closeCart() {
     cartModal.classList.remove('show');
 }
-
-// Event listener to close cart when clicking anywhere on the document
+//Event listener to close cart when clicking anywhere on the document
 document.addEventListener('click', (event) => {
     // Check if the click target is not within the cart modal
     if (!cartModal.contains(event.target)) {
@@ -111,10 +107,13 @@ cartIcon.addEventListener('click', (event) => {
     cartModal.classList.toggle('show');
 
     if (totalItemsInCart > 0) {
-        cartContent.innerHTML = `<div class="cart-modal__info">
-                    <img class="cart-modal__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
-                    <div>
-                        <div>Fall Limited Edition Sneakers</div>
+
+        cartContent.innerHTML =
+         `<div class="cart-modal__wrapper">
+            <div class="cart-modal__info">
+                <img class="cart-modal__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
+                <div>
+                    <div>Fall Limited Edition Sneakers</div>
                         <div>
                             <span class="cart-modal__price">
                                 <span class="currency">&#36;</span>${actualPrice}
@@ -125,30 +124,42 @@ cartIcon.addEventListener('click', (event) => {
                             </span>
                         </div>
                     </div>
-                    <span class="sr-only">Delete items</span>
-                    <button class="delete"><svg >
+                <span class="sr-only">Delete items</span>
+                <button class="delete">
+                    <svg >
                         <use xlink:href="images/icons.svg#delete"></use>
                     </svg>
-                    </button>
-                </div>
-                <a class="btn" href="#">Check out</a>`;
-       cartItem = document.querySelector('.cart-modal__info');
-       console.log(cartItem);
+                </button>
+            </div>
+            <a class="btn" href="#">Check out</a>
+        </div>`;
+
     }
-    // else {
-    //     let emptyCartContent = document.createElement('p');
-    //     emptyCartContent.classList.add('cart-modal__empty');
-    //     emptyCartContent.textContent = 'Your cart is empty.';
-    //     cartContent.innerHTML = '';
-    //     cartContent.append(emptyCartContent);
-    // }
+    else {
+        let emptyCartContent = document.createElement('p');
+        emptyCartContent.classList.add('cart-modal__empty');
+        emptyCartContent.textContent = 'Your cart is empty.';
+        cartContent.innerHTML = '';
+        cartContent.append(emptyCartContent);
+    }
+    console.log(cartContent);
+
+    let deleteIcon = document.querySelector('.delete');
+    function removeCartItem(event) {
+        event.stopPropagation();
+        console.log('yes');
+        let cartItem = document.querySelector('.cart-modal__wrapper');
+        cartItem.innerHTML = 'Your cart is empty.';
+
+    }
+    // Event listener for removing an item from the cart
+    deleteIcon.addEventListener('click', removeCartItem);
+
+
+
+
 });
 
-cartContent.addEventListener('click', (event) => {
-    if (event.target.classList.contains('delete')) {
-        cartItem.remove();
-    }
-});
 
 
 
