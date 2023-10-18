@@ -19,7 +19,7 @@
                         <span></span>
                     </button> -->
                 <a class="logo" href="#">
-                    <img class="logo__img" src="images/logo.svg" alt="logo">
+                    <img class="logo__img" src="images/logo.svg" alt="company's logo">
                 </a>
                 <ul class="menu">
                     <li class="menu__item">
@@ -57,12 +57,12 @@
                     </svg>
                     <span class="cart__counter">0</span>
                 </button>
-                <a class="user" href="#"><img src="/images/image-avatar.png" alt=""></a>
+                <a class="user" href="#"><img src="/images/image-avatar.png" alt="a user's photo"></a>
             </div>
         </div>
         <div class="cart-modal">
             <h3 class="cart-modal__title">Cart</h3>
-            <div class="cart-modal__content">fgh</div>
+            <div class="cart-modal__content"></div>
         </div>
     </header>
     <main>
@@ -70,22 +70,46 @@
             <h1 class="sr-only">E-commerce product page</h1>
             <section aria-labelledby="product-gallery">
                 <h2 id="product-gallery" class="sr-only">Product gallery</h2>
-                <img class="product__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
+                <img class="product__img" src="/images/image-product-1.jpg" alt="photo of sneakers 1">
                 <ul class="product__items">
                     <li class="product__thumb active"><img src="/images/image-product-1-thumbnail.jpg"
-                            alt="thumbnail picture of sneakers">
+                            alt="thumbnail picture of sneakers 1">
                     </li>
                     <li class="product__thumb"><img src="/images/image-product-2-thumbnail.jpg"
-                            alt="thumbnail picture of sneakers">
+                            alt="thumbnail picture of sneakers 2">
                     </li>
                     <li class="product__thumb"><img src="/images/image-product-3-thumbnail.jpg"
-                            alt="thumbnail picture of sneakers">
+                            alt="thumbnail picture of sneakers 3">
                     </li>
                     <li class="product__thumb"><img src="/images/image-product-4-thumbnail.jpg"
-                            alt="thumbnail picture of sneakers">
+                            alt="thumbnail picture of sneakers 4">
                     </li>
                 </ul>
-
+                <div class="lightbox">
+                    <div class="lightbox__content">
+                        <button class="lightbox__close" type="button">
+                            <span class="sr-only">Close gallery</span>
+                            <svg>
+                                <use xlink:href="images/icons.svg#close"></use>
+                            </svg>
+                        </button>
+                        <img class="product__img" src="/images/image-product-1.jpg" alt="photo of sneakers 1">
+                        <ul class="product__items">
+                            <li class="product__thumb active"><img src="/images/image-product-1-thumbnail.jpg"
+                                    alt="thumbnail picture of sneakers 1">
+                            </li>
+                            <li class="product__thumb"><img src="/images/image-product-2-thumbnail.jpg"
+                                    alt="thumbnail picture of sneakers 2">
+                            </li>
+                            <li class="product__thumb"><img src="/images/image-product-3-thumbnail.jpg"
+                                    alt="thumbnail picture of sneakers 3">
+                            </li>
+                            <li class="product__thumb"><img src="/images/image-product-4-thumbnail.jpg"
+                                    alt="thumbnail picture of sneakers 4">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             <section class="product__info" aria-labelledby="product-info">
                 <a class="product__brand" href="#">sneaker company</a>
@@ -100,7 +124,8 @@
                 <div class="counter">
                     <div class="counter__inputs">
                         <button type="button" class="counter__substract">-</button>
-                        <input type="number" class="counter__number" readonly value="0">
+                        <label for="counter-number" class="sr-only">an input for product quantuty</label>
+                        <input id="counter-number" type="number" class="counter__number" readonly value="0">
                         <button type="button" class="counter__add">+</button>
                     </div>
                     <button class="counter__btn btn">

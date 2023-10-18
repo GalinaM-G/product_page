@@ -13,7 +13,7 @@
     --clr-grey-input: #F6F8FD;
     --clr-grey-footer: #E4E9F2;
 
-    --clr-lightbox-bgr: #00000075;
+    --clr-lightbox-bgr: #000000bf;
 }
 
 html,
@@ -46,7 +46,6 @@ main {
 
 section {
     flex: 1;
-    max-width: toRem(445);
     width: 100%;
     
 }

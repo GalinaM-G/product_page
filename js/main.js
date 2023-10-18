@@ -1,20 +1,35 @@
+
+
 //Switching the large product image by clicking on the small thumbnail images
-
-let thumbnailImages = document.querySelectorAll('.product__thumb');
 let productImage = document.querySelector('.product__img');
+let thumbnailImages = document.querySelectorAll('.product__thumb');
+let lightbox = document.querySelector('.lightbox');
+let lightboxClose = document.querySelector('.lightbox__close');
 
-// Add click event listeners to each thumbnail image
+
+
+//Add click event listeners to each thumbnail image
 thumbnailImages.forEach((thumbnail, index) => {
 
     thumbnail.addEventListener('click', () => {
         productImage.src = `/images/image-product-${index + 1}.jpg`;
         productImage.alt = thumbnail.alt;
-        console.log(thumbnail);
+        //console.log(thumbnail);
     });
 });
 
+//Lightbox gallery------------------------------------------------------------------------
 
-//Counter for a product item and cart
+productImage.addEventListener('click', () => {
+    lightbox.style.display = 'block';
+})
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+})
+
+
+//Counter for a product item and cart-------------------------------------------------------------
 
 let substructItem = document.querySelector('.counter__substract');
 let addItem = document.querySelector('.counter__add');
@@ -44,6 +59,9 @@ function calcTotal() {
 updateInputField();
 updateCartCounter(); // Update the cart counter initially
 
+
+// Adding or substructing in the counter ----------------------------------------------------
+
 addItem.addEventListener('click', () => {
     numberItem++;
     updateInputField();
@@ -71,6 +89,8 @@ substructItem.addEventListener('keydown', (e) => {
     }
 });
 
+// Add to the cart button functionality ------------------------------------------------
+
 addToCartButton.addEventListener('click', () => {
     if (numberItem > 0) {
         cartCounter.style.display = "block";
@@ -84,15 +104,19 @@ addToCartButton.addEventListener('click', () => {
     numberItem = 0;
 });
 
-//Cart rendering
+
+//Cart rendering -----------------------------------------------------------------------
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
 let cartContent = document.querySelector('.cart-modal__content');
+
+let deleteIcon;
 
 // Function to close the cart modal
 function closeCart() {
     cartModal.classList.remove('show');
 }
+
 //Event listener to close cart when clicking anywhere on the document
 document.addEventListener('click', (event) => {
     // Check if the click target is not within the cart modal
@@ -101,6 +125,16 @@ document.addEventListener('click', (event) => {
     }
 });
 
+
+function renderEmptyCart() {
+    let emptyCartContent = document.createElement('p');
+    emptyCartContent.classList.add('cart-modal__empty');
+    emptyCartContent.textContent = 'Your cart is empty.';
+    cartContent.innerHTML = '';
+    cartContent.append(emptyCartContent);
+}
+
+//Event listener on the cart icon to show number of items added,to show modal with empty or with added items and to delete items in the cart---//
 cartIcon.addEventListener('click', (event) => {
     event.stopPropagation();
 
@@ -109,8 +143,7 @@ cartIcon.addEventListener('click', (event) => {
     if (totalItemsInCart > 0) {
 
         cartContent.innerHTML =
-         `<div class="cart-modal__wrapper">
-            <div class="cart-modal__info">
+            `<div class="cart-modal__info">
                 <img class="cart-modal__img" src="/images/image-product-1.jpg" alt="photo of sneakers">
                 <div>
                     <div>Fall Limited Edition Sneakers</div>
@@ -131,34 +164,29 @@ cartIcon.addEventListener('click', (event) => {
                     </svg>
                 </button>
             </div>
-            <a class="btn" href="#">Check out</a>
-        </div>`;
+            <a class="btn" href="#">Check out</a>`;
 
+        // Event listener for removing an item from the cart
+        deleteIcon = document.querySelector('.delete');
+        deleteIcon.addEventListener('click', (event) => {
+
+            renderEmptyCart();
+
+            totalItemsInCart = 0;
+            cartCounter.style.display = "none";
+
+        });
     }
     else {
-        let emptyCartContent = document.createElement('p');
-        emptyCartContent.classList.add('cart-modal__empty');
-        emptyCartContent.textContent = 'Your cart is empty.';
-        cartContent.innerHTML = '';
-        cartContent.append(emptyCartContent);
+        renderEmptyCart();
     }
-    console.log(cartContent);
-
-    let deleteIcon = document.querySelector('.delete');
-    function removeCartItem(event) {
-        event.stopPropagation();
-        console.log('yes');
-        let cartItem = document.querySelector('.cart-modal__wrapper');
-        cartItem.innerHTML = 'Your cart is empty.';
-
-    }
-    // Event listener for removing an item from the cart
-    deleteIcon.addEventListener('click', removeCartItem);
-
-
-
-
 });
+
+
+
+
+
+
 
 
 
