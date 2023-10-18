@@ -3,9 +3,11 @@
 //Switching the large product image by clicking on the small thumbnail images
 let productImage = document.querySelector('.product__img');
 let thumbnailImages = document.querySelectorAll('.product__thumb');
+
 let lightbox = document.querySelector('.lightbox');
 let lightboxClose = document.querySelector('.lightbox__close');
-
+let lightboxImages = document.querySelectorAll('.lightbox__thumb');
+let lightboxImage = document.querySelector('.lightbox__img');
 
 
 //Add click event listeners to each thumbnail image
@@ -22,11 +24,21 @@ thumbnailImages.forEach((thumbnail, index) => {
 
 productImage.addEventListener('click', () => {
     lightbox.style.display = 'block';
+
 })
 
 lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
+
+lightboxImages.forEach((thumbnail, index) => {
+
+    thumbnail.addEventListener('click', () => {
+        lightboxImage.src = `/images/image-product-${index + 1}.jpg`;
+        lightboxImage.alt = thumbnail.alt;
+        //console.log(thumbnail);
+    });
+});
 
 
 //Counter for a product item and cart-------------------------------------------------------------
