@@ -4,12 +4,6 @@
 let productImage = document.querySelector('.product__img');
 let thumbnailImages = document.querySelectorAll('.product__thumb');
 
-let lightbox = document.querySelector('.lightbox');
-let lightboxClose = document.querySelector('.lightbox__close');
-let lightboxImages = document.querySelectorAll('.lightbox__thumb');
-let lightboxImage = document.querySelector('.lightbox__img');
-
-
 //Add click event listeners to each thumbnail image
 thumbnailImages.forEach((thumbnail, index) => {
 
@@ -21,24 +15,46 @@ thumbnailImages.forEach((thumbnail, index) => {
 });
 
 //Lightbox gallery------------------------------------------------------------------------
+let lightbox = document.querySelector('.lightbox');
+let lightboxClose = document.querySelector('.lightbox__close');
+
+
+let lightboxImages = document.querySelectorAll('.lightbox__thumb');
+let lightboxImage = document.querySelector('.lightbox__img');
+
+let lPrevBtn = document.querySelector('.lightbox__prev');
+let lNextBtn = document.querySelector('.lightbox__next');
 
 productImage.addEventListener('click', () => {
     lightbox.style.display = 'block';
-
 })
 
 lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
 
-lightboxImages.forEach((thumbnail, index) => {
 
+lNextBtn.addEventListener('click', nextFunc);
+
+lPrevBtn.addEventListener('click', prevFunc);
+
+function nextFunc() {
+    console.log(46);
+}
+function prevFunc() {
+    console.log(11);
+}
+
+lightboxImages.forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {
         lightboxImage.src = `/images/image-product-${index + 1}.jpg`;
-        lightboxImage.alt = thumbnail.alt;
-        //console.log(thumbnail);
+        lightboxImage.alt = thumbnail.alt; 
     });
 });
+
+
+
+//nextBtn.addEventListener('click', nextFunc);
 
 
 //Counter for a product item and cart-------------------------------------------------------------
@@ -116,7 +132,6 @@ addToCartButton.addEventListener('click', () => {
     numberItem = 0;
 });
 
-
 //Cart rendering -----------------------------------------------------------------------
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
@@ -130,12 +145,12 @@ function closeCart() {
 }
 
 //Event listener to close cart when clicking anywhere on the document
-document.addEventListener('click', (event) => {
-    // Check if the click target is not within the cart modal
-    if (!cartModal.contains(event.target)) {
-        closeCart();
-    }
-});
+// document.addEventListener('click', (event) => {
+//     // Check if the click target is not within the cart modal
+//     if (!cartModal.contains(event.target)) {
+//         closeCart();
+//     }
+// });
 
 
 function renderEmptyCart() {
