@@ -116,6 +116,7 @@
     }
 
     &__img {
+        //max-width: toRem(445);
         border-radius: toRem(15);
         margin-bottom: toRem(32);
         cursor: pointer;
@@ -185,6 +186,11 @@
         color: var(--clr-font);
         line-height: 1.6;
         margin-bottom: toRem(24);
+    }
+
+    &__next,
+    &__prev {
+        display: none;
     }
 }
 
@@ -270,6 +276,34 @@
     &__thumb img {
         border-radius: toRem(10);
     }
+}
+
+.wrapper{
+    position: relative;
+}
+
+.next,
+.prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--clr-bgr);
+    width: toRem(56);
+    height: toRem(56);
+    border-radius: 50%;
+    left: toRem(-25);
+}
+
+.next {
+    left: toRem(490);
+}
+
+.next svg,
+.prev svg {
+    width: toRem(12);
+    height: toRem(20);
+    fill: var(--clr-selection);
+    padding-top: toRem(3);
 }
 
 .price {

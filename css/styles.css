@@ -338,6 +338,9 @@ section {
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
+.product__next, .product__prev {
+  display: none;
+}
 
 .lightbox {
   display: none;
@@ -422,6 +425,36 @@ section {
 }
 .lightbox__thumb img {
   border-radius: 0.625rem;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.next,
+.prev {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: var(--clr-bgr);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  left: -1.5625rem;
+}
+
+.next {
+  left: 30.625rem;
+}
+
+.next svg,
+.prev svg {
+  width: 0.75rem;
+  height: 1.25rem;
+  fill: var(--clr-selection);
+  padding-top: 0.1875rem;
 }
 
 .price {
