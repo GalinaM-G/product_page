@@ -4,20 +4,24 @@
 let productImage = document.querySelector('.product__img');
 let thumbnailImages = document.querySelectorAll('.product__thumb');
 
+
 //Add click event listeners to each thumbnail image
 thumbnailImages.forEach((thumbnail, index) => {
-
     thumbnail.addEventListener('click', () => {
         productImage.src = `/images/image-product-${index + 1}.jpg`;
-        productImage.alt = thumbnail.alt;
-        //console.log(thumbnail);
+        productImage.alt = `image of product ${index + 1}`;
+
+        thumbnailImages.forEach(thumb => {
+            thumb.classList.remove('active');
+        });
+
+        thumbnail.classList.add('active');
     });
 });
 
 //Lightbox gallery------------------------------------------------------------------------
 let lightbox = document.querySelector('.lightbox');
 let lightboxClose = document.querySelector('.lightbox__close');
-
 
 let lightboxImages = document.querySelectorAll('.lightbox__thumb');
 let lightboxImage = document.querySelector('.lightbox__img');
@@ -33,28 +37,42 @@ lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
 
-
-lNextBtn.addEventListener('click', nextFunc);
-
-lPrevBtn.addEventListener('click', prevFunc);
-
-function nextFunc() {
-    console.log(46);
-}
-function prevFunc() {
-    console.log(11);
-}
-
-lightboxImages.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
+lightboxImages.forEach((item, index) => {
+    item.addEventListener('click', () => {
         lightboxImage.src = `/images/image-product-${index + 1}.jpg`;
-        lightboxImage.alt = thumbnail.alt; 
-    });
+        lightboxImage.alt = `image of product ${index + 1}`;
+        lightboxImages.forEach(thumb => {
+            thumb.classList.remove('active');
+        });
+        item.classList.add('active');
+    })
 });
 
+lNextBtn.addEventListener('click', nextFunc);
+// lPrevBtn.addEventListener('click', prevFunc);
 
 
-//nextBtn.addEventListener('click', nextFunc);
+let count = 0;
+function nextFunc() {
+
+    if (count + 1 < lightboxImages.length) {
+        count++;
+    }
+    else {
+        count = 0;
+    }
+
+    lightboxImages.forEach((item) => {
+        item.classList.remove('active');
+    });
+
+    lightboxImages[count].classList.add('active');
+    lightboxImage.src = `/images/image-product-${count + 1}.jpg`;
+}
+
+// function prevFunc() {
+
+// }
 
 
 //Counter for a product item and cart-------------------------------------------------------------
@@ -145,12 +163,12 @@ function closeCart() {
 }
 
 //Event listener to close cart when clicking anywhere on the document
-// document.addEventListener('click', (event) => {
-//     // Check if the click target is not within the cart modal
-//     if (!cartModal.contains(event.target)) {
-//         closeCart();
-//     }
-// });
+document.addEventListener('click', (event) => {
+    // Check if the click target is not within the cart modal
+    if (!cartModal.contains(event.target)) {
+        closeCart();
+    }
+});
 
 
 function renderEmptyCart() {
