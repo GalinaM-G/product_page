@@ -49,7 +49,7 @@ lightboxImages.forEach((item, index) => {
 });
 
 lNextBtn.addEventListener('click', nextFunc);
-// lPrevBtn.addEventListener('click', prevFunc);
+lPrevBtn.addEventListener('click', prevFunc);
 
 
 let count = 0;
@@ -70,9 +70,21 @@ function nextFunc() {
     lightboxImage.src = `/images/image-product-${count + 1}.jpg`;
 }
 
-// function prevFunc() {
+function prevFunc() {
+    if (count - 1 >= 0) {
+        count--;
+    }
+    else {
+        count = lightboxImages.length - 1;
+    }
 
-// }
+    lightboxImages.forEach((item) => {
+        item.classList.remove('active');
+    });
+
+    lightboxImages[count].classList.add('active');
+    lightboxImage.src = `/images/image-product-${count +1}.jpg`;
+}
 
 
 //Counter for a product item and cart-------------------------------------------------------------
@@ -107,7 +119,6 @@ updateCartCounter(); // Update the cart counter initially
 
 
 // Adding or substructing in the counter ----------------------------------------------------
-
 addItem.addEventListener('click', () => {
     numberItem++;
     updateInputField();
@@ -136,12 +147,10 @@ substructItem.addEventListener('keydown', (e) => {
 });
 
 // Add to the cart button functionality ------------------------------------------------
-
 addToCartButton.addEventListener('click', () => {
     if (numberItem > 0) {
         cartCounter.style.display = "block";
         totalItemsInCart += numberItem; // Add the selected items to the total cart items
-        //console.log(totalItemsInCart);
         updateCartCounter(); // Update the cart counter
         calcTotal();
     }
