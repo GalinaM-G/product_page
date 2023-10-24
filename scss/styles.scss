@@ -10,8 +10,7 @@
 
     &__container,
     &__left,
-    &__right,
-    .menu {
+    &__right {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -24,10 +23,18 @@
 
     &__left {
         gap: toRem(56);
+
+        @media screen and (max-width: toRem(780)) {
+            gap: toRem(16);
+        }
     }
 
     &__right {
         gap: toRem(44);
+
+        @media screen and (max-width: toRem(780)) {
+            gap: toRem(20);
+        }
     }
 }
 
@@ -39,6 +46,8 @@
 }
 
 .menu {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: toRem(33);
     font-size: toRem(15);
@@ -52,6 +61,30 @@
             padding-bottom: toRem(53);
             border-bottom: 4px solid var(--clr-primary);
         }
+    }
+
+    @media screen and (max-width: toRem(780)) {
+        display: none;
+    }
+}
+
+.burger {
+    display: none;
+
+    svg {
+        width: toRem(16);
+        height: toRem(15);
+        fill: var(--clr-font);
+        transition: fill 0.3s;
+
+        &:hover {
+            fill: var(--clr-selection);
+        }
+    }
+
+    @media screen and (max-width: toRem(780)) {
+        display: block;
+
     }
 }
 
@@ -318,10 +351,12 @@
     padding-top: toRem(3);
     transition: stroke 0.3s;
 
-    &:hover {
-        stroke: var(--clr-primary)
-    }
+    
+}
 
+.next:hover svg,
+.prev:hover svg {
+        stroke: var(--clr-primary)
 }
 
 .price {
@@ -449,6 +484,11 @@
 
         &:hover {
             border: 2px solid var(--clr-primary);
+        }
+
+        @media screen and (max-width: toRem(425)) {
+            width: toRem(26);
+            height: toRem(26);
         }
     }
 }

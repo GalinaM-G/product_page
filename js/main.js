@@ -83,7 +83,7 @@ function prevFunc() {
     });
 
     lightboxImages[count].classList.add('active');
-    lightboxImage.src = `/images/image-product-${count +1}.jpg`;
+    lightboxImage.src = `/images/image-product-${count + 1}.jpg`;
 }
 
 

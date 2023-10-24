@@ -156,8 +156,7 @@ section {
   overflow: hidden;
 }
 
-.header__container, .header__left, .header__right,
-.header .menu {
+.header__container, .header__left, .header__right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,8 +174,18 @@ section {
 .header__left {
   gap: 3.5rem;
 }
+@media screen and (max-width: 48.75rem) {
+  .header__left {
+    gap: 1rem;
+  }
+}
 .header__right {
   gap: 2.75rem;
+}
+@media screen and (max-width: 48.75rem) {
+  .header__right {
+    gap: 1.25rem;
+  }
 }
 
 .logo__img {
@@ -185,6 +194,12 @@ section {
 }
 
 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -200,6 +215,30 @@ section {
   color: var(--clr-selection);
   padding-bottom: 3.3125rem;
   border-bottom: 4px solid var(--clr-primary);
+}
+@media screen and (max-width: 48.75rem) {
+  .menu {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+}
+.burger svg {
+  width: 1rem;
+  height: 0.9375rem;
+  fill: var(--clr-font);
+  -webkit-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+.burger svg:hover {
+  fill: var(--clr-selection);
+}
+@media screen and (max-width: 48.75rem) {
+  .burger {
+    display: block;
+  }
 }
 
 .cart-modal {
@@ -472,8 +511,9 @@ section {
   -webkit-transition: stroke 0.3s;
   transition: stroke 0.3s;
 }
-.next svg:hover,
-.prev svg:hover {
+
+.next:hover svg,
+.prev:hover svg {
   stroke: var(--clr-primary);
 }
 
@@ -610,6 +650,12 @@ section {
 }
 .user img:hover {
   border: 2px solid var(--clr-primary);
+}
+@media screen and (max-width: 26.5625rem) {
+  .user img {
+    width: 1.625rem;
+    height: 1.625rem;
+  }
 }
 
 .footer {
