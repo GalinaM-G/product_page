@@ -1,25 +1,47 @@
+//Mobile menu
 
+let burgerBtn = document.querySelector('.burger');
+let menu = document.querySelector('.menu');
+let menuItem = document.querySelectorAll('.menu__item');
 
-//Switching the large product image by clicking on the small thumbnail images
-let productImage = document.querySelector('.product__img');
-let thumbnailImages = document.querySelectorAll('.product__thumb');
+burgerBtn.addEventListener('click', () => {
+    menu.classList.toggle('mobile');
+    burgerBtn.classList.toggle('mobile');
+    document.body.classList.toggle('lock');
+})
 
-
-//Add click event listeners to each thumbnail image
-thumbnailImages.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        productImage.src = `/images/image-product-${index + 1}.jpg`;
-        productImage.alt = `image of product ${index + 1}`;
-
-        thumbnailImages.forEach(thumb => {
-            thumb.classList.remove('active');
-        });
-
-        thumbnail.classList.add('active');
+menuItem.forEach(link => {
+    link.addEventListener("click", () => {
+        burgerBtn.classList.remove('mobile');
+        menu.classList.remove('mobile');
+        document.body.classList.remove('lock');
     });
 });
 
-//Lightbox gallery------------------------------------------------------------------------
+
+//Switch the large product image by clicking on the small thumbnail images
+let productImage = document.querySelector('.product__img');
+let thumbnailImages = document.querySelectorAll('.product__thumb');
+
+function switchImg(thumbImgs, mainImg) {
+    thumbImgs.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            mainImg.src = `/images/image-product-${index + 1}.jpg`;
+            mainImg.alt = `image of product ${index + 1}`;
+
+            thumbImgs.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+
+            thumbnail.classList.add('active');
+        });
+    });
+}
+
+switchImg(thumbnailImages, productImage);
+
+
+//Lightbox gallery
 let lightbox = document.querySelector('.lightbox');
 let lightboxClose = document.querySelector('.lightbox__close');
 
@@ -37,24 +59,16 @@ lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })
 
-lightboxImages.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        lightboxImage.src = `/images/image-product-${index + 1}.jpg`;
-        lightboxImage.alt = `image of product ${index + 1}`;
-        lightboxImages.forEach(thumb => {
-            thumb.classList.remove('active');
-        });
-        item.classList.add('active');
-    })
-});
+//Switch the large product image by clicking on the small thumbnail images
+switchImg(lightboxImages, lightboxImage);
 
+
+//Switch the large product image by clicking on the arrows
 lNextBtn.addEventListener('click', nextFunc);
 lPrevBtn.addEventListener('click', prevFunc);
 
-
 let count = 0;
 function nextFunc() {
-
     if (count + 1 < lightboxImages.length) {
         count++;
     }
@@ -87,8 +101,7 @@ function prevFunc() {
 }
 
 
-//Counter for a product item and cart-------------------------------------------------------------
-
+//Counter for a product item and cart
 let substructItem = document.querySelector('.counter__substract');
 let addItem = document.querySelector('.counter__add');
 let numberItem = document.querySelector('.counter__number').value;
@@ -97,7 +110,6 @@ let cartCounter = document.querySelector('.cart__counter');
 let addToCartButton = document.querySelector('.counter__btn');
 
 let totalItemsInCart = 0; // Initialize the total items in the cart
-
 let actualPrice = 125.00.toFixed(2);
 let totalPrice = 0.00;
 
@@ -118,7 +130,7 @@ updateInputField();
 updateCartCounter(); // Update the cart counter initially
 
 
-// Adding or substructing in the counter ----------------------------------------------------
+// Adding or substructing in the counter 
 addItem.addEventListener('click', () => {
     numberItem++;
     updateInputField();
@@ -146,7 +158,7 @@ substructItem.addEventListener('keydown', (e) => {
     }
 });
 
-// Add to the cart button functionality ------------------------------------------------
+// Add to the cart button functionality 
 addToCartButton.addEventListener('click', () => {
     if (numberItem > 0) {
         cartCounter.style.display = "block";
@@ -154,16 +166,15 @@ addToCartButton.addEventListener('click', () => {
         updateCartCounter(); // Update the cart counter
         calcTotal();
     }
-
     document.querySelector('.counter__number').value = 0;
     numberItem = 0;
 });
 
-//Cart rendering -----------------------------------------------------------------------
+
+//Cart rendering 
 let cartModal = document.querySelector('.cart-modal');
 let cartIcon = document.querySelector('.cart');
 let cartContent = document.querySelector('.cart-modal__content');
-
 let deleteIcon;
 
 // Function to close the cart modal
