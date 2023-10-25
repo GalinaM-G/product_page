@@ -377,6 +377,24 @@ section {
 .product__info {
   padding-top: 3.75rem;
 }
+@media screen and (max-width: 61.5625rem) {
+  .product__info {
+    padding-top: 0rem;
+  }
+}
+@media screen and (max-width: 61.5625rem) {
+  .product {
+    gap: 5rem;
+  }
+}
+@media screen and (max-width: 55.3125rem) {
+  .product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .product__img {
   border-radius: 0.9375rem;
   margin-bottom: 2rem;

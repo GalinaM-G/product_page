@@ -60,7 +60,8 @@
             color: var(--clr-selection);
             padding-bottom: toRem(53);
             border-bottom: 4px solid var(--clr-primary);
-            @media screen and (max-width: toRem(780)){
+
+            @media screen and (max-width: toRem(780)) {
                 border-bottom: none;
             }
         }
@@ -183,12 +184,26 @@
     gap: toRem(125);
     padding: toRem(90) 0 toRem(132) 0;
 
+
+
     &__info {
         padding-top: toRem(60);
+
+        @media screen and (max-width: toRem(985)) {
+            padding-top: toRem(0);
+        }
+    }
+
+    @media screen and (max-width: toRem(985)) {
+        gap: toRem(80);
+    }
+
+    @media screen and (max-width: toRem(885)){
+          flex-direction: column;
     }
 
     &__img {
-        //max-width: toRem(445);
+        
         border-radius: toRem(15);
         margin-bottom: toRem(32);
         cursor: pointer;
