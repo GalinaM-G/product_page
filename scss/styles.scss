@@ -19,6 +19,11 @@
     &__container {
         padding: toRem(40) toRem(15);
         border-bottom: 1px solid var(--clr-grey-footer);
+
+        @media screen and (max-width: toRem(380)) {
+            padding: toRem(19) toRem(24) toRem(25);
+            border-bottom: none;
+        }
     }
 
     &__left {
@@ -184,8 +189,6 @@
     gap: toRem(125);
     padding: toRem(90) 0 toRem(132) 0;
 
-
-
     &__info {
         padding-top: toRem(60);
 
@@ -198,15 +201,34 @@
         gap: toRem(80);
     }
 
-    @media screen and (max-width: toRem(885)){
-          flex-direction: column;
+    @media screen and (max-width: toRem(885)) {
+        flex-direction: column;
+        padding: toRem(40) 0 toRem(100) 0;
+    }
+
+    @media screen and (max-width: toRem(430)) {
+        gap: toRem(0);
+    }
+
+    @media screen and (max-width: toRem(380)) {
+        padding: 0 0 toRem(50) 0;
     }
 
     &__img {
-        
         border-radius: toRem(15);
         margin-bottom: toRem(32);
         cursor: pointer;
+
+        @media screen and (max-width: toRem(885)) {
+            max-width: toRem(600);
+            width: 100%;
+            margin: 0 auto toRem(32);
+        }
+
+        @media screen and (max-width: toRem(380)){
+              height: toRem(300);
+              margin-bottom: toRem(24);
+        }
     }
 
     &__items {
@@ -214,6 +236,21 @@
         justify-content: space-between;
         align-items: center;
         gap: toRem(31);
+
+        @media screen and (max-width: toRem(885)) {
+            justify-content: center;
+            gap: toRem(80);
+        }
+
+        @media screen and (max-width: toRem(650)) {
+            justify-content: space-between;
+            gap: toRem(31);
+        }
+
+
+        @media screen and (max-width: toRem(430)) {
+            display: none;
+        }
     }
 
     &__thumb {
@@ -259,6 +296,14 @@
         text-transform: uppercase;
         letter-spacing: toRem(2);
         margin-bottom: toRem(24);
+
+        @media screen and (max-width: toRem(650)){
+             font-size: toRem(12); 
+        }
+
+        @media screen and (max-width: toRem(430)){
+            margin-bottom: toRem(16);
+        }
     }
 
     &__title {
@@ -267,6 +312,13 @@
         color: var(--clr-selection);
         text-transform: capitalize;
         margin-bottom: toRem(32);
+        @media screen and (max-width: toRem(650)){
+              font-size: toRem(28);
+        }
+
+        @media screen and (max-width: toRem(380)){
+              margin-bottom: toRem(24);
+        }
     }
 
     &__text {
@@ -278,6 +330,18 @@
     &__next,
     &__prev {
         display: none;
+
+        @media screen and (max-width: toRem(430)) {
+            display: block;
+        }
+    }
+
+    &__prev {
+        left: toRem(18);
+    }
+
+    &__next {
+        right: toRem(18)
     }
 }
 
@@ -382,12 +446,13 @@
     width: toRem(56);
     height: toRem(56);
     border-radius: 50%;
-    left: toRem(-25);
+
+    @media screen and (max-width: toRem(430)) {
+        width: toRem(40);
+        height: toRem(40);
+    }
 }
 
-.next {
-    left: toRem(490);
-}
 
 .next svg,
 .prev svg {
@@ -397,7 +462,10 @@
     padding-top: toRem(3);
     transition: stroke 0.3s;
 
-
+    @media screen and (max-width: toRem(430)) {
+        padding-top: toRem(4);
+        height: toRem(22);
+    }
 }
 
 .next:hover svg,
@@ -411,6 +479,17 @@
     position: relative;
     font-weight: 700;
     margin-bottom: toRem(32);
+
+    @media screen and (max-width: toRem(885)) {
+        flex-direction: row;
+        align-items: center;
+        gap: toRem(82);
+    }
+
+    @media screen and (max-width: toRem(430)) {
+        justify-content: space-between;
+        margin-bottom: toRem(24);
+    }
 
     &__actual {
         font-size: toRem(28);
@@ -431,8 +510,6 @@
         color: var(--clr-grey-price);
         text-decoration: line-through;
     }
-
-
 }
 
 .counter {
@@ -440,6 +517,11 @@
     align-items: center;
     gap: toRem(16);
     min-height: toRem(56);
+
+    @media screen and (max-width: toRem(490)) {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
     &__inputs {
         display: flex;
@@ -449,6 +531,14 @@
         border-radius: toRem(10);
         width: toRem(157);
         font-weight: 700;
+
+        @media screen and (max-width: toRem(885)) {
+            width: 35%;
+        }
+
+        @media screen and (max-width: toRem(490)) {
+            width: 100%;
+        }
     }
 
     &__number {
@@ -458,7 +548,6 @@
         width: 100%;
         text-align: center;
         flex: 1;
-        padding-left: 20px;
     }
 
     &__substract,
@@ -478,14 +567,12 @@
         align-items: center;
         justify-content: center;
         gap: toRem(15);
-        padding-left: toRem(75)
     }
 
     &__btn svg {
         width: toRem(22);
         height: toRem(20);
         fill: var(--clr-bgr);
-
     }
 }
 

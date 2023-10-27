@@ -40,6 +40,45 @@ function switchImg(thumbImgs, mainImg) {
 
 switchImg(thumbnailImages, productImage);
 
+//Switch the large product image by clicking on the arrows
+let prevBtn = document.querySelector('.product__prev');
+let nextBtn = document.querySelector('.product__next');
+nextBtn.addEventListener('click', nextFunc1);
+prevBtn.addEventListener('click', prevFunc1);
+
+function nextFunc1() {
+    if (count + 1 < thumbnailImages.length) {
+        count++;
+    }
+    else {
+        count = 0;
+    }
+
+    thumbnailImages.forEach((item) => {
+        item.classList.remove('active');
+    });
+
+    thumbnailImages[count].classList.add('active');
+    productImage.src = `/images/image-product-${count + 1}.jpg`;
+}
+
+function prevFunc1() {
+    if (count - 1 >= 0) {
+        count--;
+    }
+    else {
+        count = thumbnailImages.length - 1;
+    }
+
+    thumbnailImages.forEach((item) => {
+        item.classList.remove('active');
+    });
+
+    thumbnailImages[count].classList.add('active');
+    productImage.src = `/images/image-product-${count + 1}.jpg`;
+}
+
+
 
 //Lightbox gallery
 let lightbox = document.querySelector('.lightbox');
