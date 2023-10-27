@@ -94,6 +94,7 @@ productImage.addEventListener('click', () => {
     lightbox.style.display = 'block';
 })
 
+
 lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 })

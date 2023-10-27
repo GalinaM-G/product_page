@@ -133,6 +133,35 @@
     width: toRem(360);
     background-color: var(--clr-bgr);
     box-shadow: 0px 20px 50px -20px #1d202680;
+    z-index: 2;
+
+    @media screen and (max-width: toRem(1200)){
+        left: 62%;  
+    }
+
+    @media screen and (max-width: toRem(980)){
+          left: 58%;
+    }
+
+    @media screen and (max-width: toRem(885)){
+          left: 47%;
+    }
+
+    @media screen and (max-width: toRem(710)){
+          left: 30%;
+    }
+
+    @media screen and (max-width: toRem(538)){
+          left: 15%;
+    }
+
+    @media screen and (max-width: toRem(500)){
+          left: 8%;
+    }
+
+    @media screen and (max-width: toRem(376)){
+          left: 1%;
+    }
 
     &__title {
         font-size: toRem(16);
@@ -225,9 +254,9 @@
             margin: 0 auto toRem(32);
         }
 
-        @media screen and (max-width: toRem(380)){
-              height: toRem(300);
-              margin-bottom: toRem(24);
+        @media screen and (max-width: toRem(380)) {
+            height: toRem(300);
+            margin-bottom: toRem(24);
         }
     }
 
@@ -297,11 +326,11 @@
         letter-spacing: toRem(2);
         margin-bottom: toRem(24);
 
-        @media screen and (max-width: toRem(650)){
-             font-size: toRem(12); 
+        @media screen and (max-width: toRem(650)) {
+            font-size: toRem(12);
         }
 
-        @media screen and (max-width: toRem(430)){
+        @media screen and (max-width: toRem(430)) {
             margin-bottom: toRem(16);
         }
     }
@@ -312,12 +341,13 @@
         color: var(--clr-selection);
         text-transform: capitalize;
         margin-bottom: toRem(32);
-        @media screen and (max-width: toRem(650)){
-              font-size: toRem(28);
+
+        @media screen and (max-width: toRem(650)) {
+            font-size: toRem(28);
         }
 
-        @media screen and (max-width: toRem(380)){
-              margin-bottom: toRem(24);
+        @media screen and (max-width: toRem(380)) {
+            margin-bottom: toRem(24);
         }
     }
 
@@ -365,6 +395,10 @@
         width: 100%;
         margin: 0 auto;
         padding: 0 toRem(15);
+
+        @media screen and (max-width: toRem(1280)) {
+            max-width: toRem(400);
+        }
     }
 
     &__img {
@@ -430,6 +464,26 @@
 
     &__thumb img {
         border-radius: toRem(10);
+    }
+
+
+    &__prev {
+        left: toRem(-28);
+    }
+
+    &__next {
+        right: toRem(-28)
+    }
+
+    &__prev {
+        @media screen and (max-width: toRem(430)) {
+            left: toRem(18);
+        }
+    }
+    &__next {
+        @media screen and (max-width: toRem(430)) {
+            right: toRem(18);
+        }
     }
 }
 
