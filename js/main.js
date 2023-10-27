@@ -274,7 +274,7 @@ cartIcon.addEventListener('click', (event) => {
         // Event listener for removing an item from the cart
         deleteIcon = document.querySelector('.delete');
         deleteIcon.addEventListener('click', (event) => {
-
+            event.stopPropagation();
             renderEmptyCart();
 
             totalItemsInCart = 0;
