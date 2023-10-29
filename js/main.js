@@ -41,43 +41,46 @@ function switchImg(thumbImgs, mainImg) {
 switchImg(thumbnailImages, productImage);
 
 //Switch the large product image by clicking on the arrows
-let prevBtn = document.querySelector('.product__prev');
-let nextBtn = document.querySelector('.product__next');
-nextBtn.addEventListener('click', nextFunc1);
-prevBtn.addEventListener('click', prevFunc1);
-
-function nextFunc1() {
-    if (count + 1 < thumbnailImages.length) {
+let count = 0;
+function nextFunc(imgs, img) {
+    if (count + 1 < imgs.length) {
         count++;
-    }
-    else {
+    } else {
         count = 0;
     }
 
-    thumbnailImages.forEach((item) => {
+    imgs.forEach((item) => {
         item.classList.remove('active');
     });
 
-    thumbnailImages[count].classList.add('active');
-    productImage.src = `/images/image-product-${count + 1}.jpg`;
+    imgs[count].classList.add('active');
+    img.src = `/images/image-product-${count + 1}.jpg`;
 }
 
-function prevFunc1() {
+function prevFunc(imgs, img) {
     if (count - 1 >= 0) {
         count--;
-    }
-    else {
-        count = thumbnailImages.length - 1;
+    } else {
+        count = imgs.length - 1;
     }
 
-    thumbnailImages.forEach((item) => {
+    imgs.forEach((item) => {
         item.classList.remove('active');
     });
 
-    thumbnailImages[count].classList.add('active');
-    productImage.src = `/images/image-product-${count + 1}.jpg`;
+    imgs[count].classList.add('active');
+    img.src = `/images/image-product-${count + 1}.jpg`;
 }
 
+let prevBtn = document.querySelector('.product__prev');
+let nextBtn = document.querySelector('.product__next');
+
+nextBtn.addEventListener('click', function () {
+    nextFunc(thumbnailImages, productImage);
+});
+prevBtn.addEventListener('click', function () {
+    prevFunc(thumbnailImages, productImage);
+});
 
 
 //Lightbox gallery
@@ -104,41 +107,13 @@ switchImg(lightboxImages, lightboxImage);
 
 
 //Switch the large product image by clicking on the arrows
-lNextBtn.addEventListener('click', nextFunc);
-lPrevBtn.addEventListener('click', prevFunc);
+lNextBtn.addEventListener('click', function () {
+    nextFunc(lightboxImages, lightboxImage);
+});
+lPrevBtn.addEventListener('click', function () {
+    prevFunc(lightboxImages, lightboxImage);
+});
 
-let count = 0;
-function nextFunc() {
-    if (count + 1 < lightboxImages.length) {
-        count++;
-    }
-    else {
-        count = 0;
-    }
-
-    lightboxImages.forEach((item) => {
-        item.classList.remove('active');
-    });
-
-    lightboxImages[count].classList.add('active');
-    lightboxImage.src = `/images/image-product-${count + 1}.jpg`;
-}
-
-function prevFunc() {
-    if (count - 1 >= 0) {
-        count--;
-    }
-    else {
-        count = lightboxImages.length - 1;
-    }
-
-    lightboxImages.forEach((item) => {
-        item.classList.remove('active');
-    });
-
-    lightboxImages[count].classList.add('active');
-    lightboxImage.src = `/images/image-product-${count + 1}.jpg`;
-}
 
 
 //Counter for a product item and cart
