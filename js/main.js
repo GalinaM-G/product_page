@@ -42,7 +42,7 @@ switchImg(thumbnailImages, productImage);
 
 //Switch the large product image by clicking on the arrows
 let count = 0;
-function nextFunc(imgs, img) {
+function switchImgbyNextArrow(imgs, img) {
     if (count + 1 < imgs.length) {
         count++;
     } else {
@@ -57,7 +57,7 @@ function nextFunc(imgs, img) {
     img.src = `/images/image-product-${count + 1}.jpg`;
 }
 
-function prevFunc(imgs, img) {
+function switchImgbyPrevArrow(imgs, img) {
     if (count - 1 >= 0) {
         count--;
     } else {
@@ -76,10 +76,10 @@ let prevBtn = document.querySelector('.product__prev');
 let nextBtn = document.querySelector('.product__next');
 
 nextBtn.addEventListener('click', function () {
-    nextFunc(thumbnailImages, productImage);
+    switchImgbyNextArrow(thumbnailImages, productImage);
 });
 prevBtn.addEventListener('click', function () {
-    prevFunc(thumbnailImages, productImage);
+    switchImgbyPrevArrow(thumbnailImages, productImage);
 });
 
 
@@ -108,10 +108,10 @@ switchImg(lightboxImages, lightboxImage);
 
 //Switch the large product image by clicking on the arrows
 lNextBtn.addEventListener('click', function () {
-    nextFunc(lightboxImages, lightboxImage);
+    switchImgbyNextArrow(lightboxImages, lightboxImage);
 });
 lPrevBtn.addEventListener('click', function () {
-    prevFunc(lightboxImages, lightboxImage);
+    switchImgbyPrevArrow(lightboxImages, lightboxImage);
 });
 
 
